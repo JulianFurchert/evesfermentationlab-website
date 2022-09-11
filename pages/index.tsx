@@ -16,7 +16,7 @@ const Home: NextPage = () => {
             <h1>{"Eve's Fermentation Lab"}</h1>
           </div>
           <div className='w-[50vw] h-screen flex overflow-hidden bg-primary'>
-            <div className='w-[50vw] h-screen flexrelative flex justify-center items-center overflow-hidden'>
+            <div className='w-[50vw] h-screen flex relative justify-center items-center overflow-hidden'>
               <Gallery 
                 images={[
                   "/assets/img/IMG_6786.jpg",

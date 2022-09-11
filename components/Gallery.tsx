@@ -2,11 +2,12 @@ import * as React from "react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { wrap } from "popmotion";
+import { ProgressBar } from "./ProgressBar";
 
 const variants = {
   enter: (direction: number) => {
     return {
-      x: direction > 0 ? 1000 : -1000,
+      // x: direction > 0 ? 800 : -800,
       opacity: 0
     };
   },
@@ -18,8 +19,8 @@ const variants = {
   exit: (direction: number) => {
     return {
       zIndex: 0,
-      x: direction < 0 ? 1000 : -1000,
-      opacity: 0
+      // x: direction < 0 ? 800 : -800,
+      opacity: 0.5
     };
   }
 };
@@ -41,11 +42,15 @@ export const Gallery: React.FC<Gallery> = ({ images }) => {
     setPage([page + newDirection, newDirection]);
   };
 
+  const handleOnChange = (index: number) => {
+    paginate(1)
+  };
+
   return (
     <>
       <AnimatePresence initial={false} custom={direction}>
         <motion.img
-          className='absolute max-w-[50vw]'
+          className='absolute max-w-[50vw] cursor-pointer'
           key={page}
           src={images[imageIndex]}
           custom={direction}
@@ -57,25 +62,28 @@ export const Gallery: React.FC<Gallery> = ({ images }) => {
             x: { type: "spring", stiffness: 300, damping: 30 },
             opacity: { duration: 0.2 }
           }}
-          drag="x"
-          dragConstraints={{ left: 0, right: 0 }}
-          dragElastic={1}
-          onDragEnd={(e, { offset, velocity }) => {
-            const swipe = swipePower(offset.x, velocity.x);
+          onClick={() => paginate(1)}
+          // drag="x"
+          // dragConstraints={{ left: 0, right: 0 }}
+          // dragElastic={1}
+          // onDragEnd={(e, { offset, velocity }) => {
+          //   const swipe = swipePower(offset.x, velocity.x);
 
-            if (swipe < -swipeConfidenceThreshold) {
-              paginate(1);
-            } else if (swipe > swipeConfidenceThreshold) {
-              paginate(-1);
-            }
-          }}
+          //   if (swipe < -swipeConfidenceThreshold) {
+          //     paginate(1);
+          //   } else if (swipe > swipeConfidenceThreshold) {
+          //     paginate(-1);
+          //   }
+          // }}
         />
       </AnimatePresence>
-      <div className="next" onClick={() => paginate(1)}>
-        {"‣"}
-      </div>
-      <div className="prev" onClick={() => paginate(-1)}>
-        {"‣"}
+      <div className="absolute w-full bottom-4 px-4">
+        <ProgressBar 
+          duration={4} 
+          currentIndex={page % 6} 
+          onChange={handleOnChange} 
+          count={6} 
+        />
       </div>
     </>
   );
