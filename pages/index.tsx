@@ -7,7 +7,8 @@ import { motion, useScroll, useTransform } from "framer-motion"
 const Home: NextPage = () => {
   const { scrollY, scrollYProgress } = useScroll();
   const width = useTransform(scrollY, [0, 500], [500, 100], {clamp: true});
-  const rotate = useTransform( scrollY, [0, 500], [0, 80], { clamp: true })
+  const rotateElement = useTransform( scrollY, [0, 500], [0, 80], { clamp: true })
+  const rotateText = useTransform( scrollY, [0, 500], [0, -80], { clamp: true })
 
   return (
     <div>
@@ -19,14 +20,14 @@ const Home: NextPage = () => {
       <main className='min-h-screen'>
         <div className='flex h-screen'>
           <div className='w-[50vw] h-screen p-16 relative' >
-            <div className='fixed w-[50vw] flex justify-center left-0 top-0 pt-8 pb-4 bg-primary bg-opacity-80'>
-              <motion.div style={{ width, rotate }} >
-                <Logo white={true} />
+            <div className='fixed w-[50vw] flex justify-center left-0 top-0 pt-8 pb-4 bg-primary bg-opacity-100'>
+              <motion.div style={{ width }} >
+                <Logo width={width} rotateElement={rotateElement} rotateText={rotateText} white={true} />
               </motion.div>
             </div>
             <div className='mt-[600px] h-[1000px]'>
               <p className='text-lg'>
-                Die Tochter einer thailändischen Mutter und eines syrischen Vaters, geboren in Bangkok, aufgewachsen in Deutschland. Essen hat in ihrer Familie und in ihrem Leben schon immer eine große Rolle gespielt. Während des Studiums drehte sich ihre Arbeit um Kunst, Design, Medien und natürlich um Essen. Die Aromen und Gerüche von fermentierten Lebensmitteln haben schon immer das Essen in ihrem Leben begleitet. In ihrem aktuellen Projekt ‘evesfermentationlab‘ auf Instagram greift sie diese Themen auf. Mit dem Ziel die gesundheitlichen und geschmacklichen Vorteile von fermentierten Lebensmitteln für mehr Menschen zugängliche zu machen.
+                Eve Jazmati is die Tochter einer thailändischen Mutter und eines syrischen Vaters, geboren in Bangkok, aufgewachsen in Deutschland. Essen hat in ihrer Familie und in ihrem Leben schon immer eine große Rolle gespielt. Während des Studiums drehte sich ihre Arbeit um Kunst, Design, Medien und natürlich um Essen. Die Aromen und Gerüche von fermentierten Lebensmitteln haben schon immer das Essen in ihrem Leben begleitet. In ihrem aktuellen Projekt ‘evesfermentationlab‘ auf Instagram greift sie diese Themen auf. Mit dem Ziel die gesundheitlichen und geschmacklichen Vorteile von fermentierten Lebensmitteln für mehr Menschen zugängliche zu machen.
               </p>
             </div>
           </div>
