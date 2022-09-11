@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { Gallery } from '../components/Gallery'
+import { Logo } from '../components/Logo'
 
 const Home: NextPage = () => {
   return (
@@ -12,10 +13,19 @@ const Home: NextPage = () => {
       </Head>
       <main className='min-h-screen bg-primary'>
         <div className='flex h-screen'>
-          <div className='w-[50vw] h-screen'>
-            <h1>{"Eve's Fermentation Lab"}</h1>
+          <div className='w-[50vw] h-screen p-16 relative'>
+            <div className='flex justify-center'>
+              <div className="max-w-[500px] w-full">
+                <Logo white={true} />
+              </div>
+            </div>
+            <div className='mt-28'>
+              <p className='text-lg'>
+                Die Tochter einer thailändischen Mutter und eines syrischen Vaters, geboren in Bangkok, aufgewachsen in Deutschland. Essen hat in ihrer Familie und in ihrem Leben schon immer eine große Rolle gespielt. Während des Studiums drehte sich ihre Arbeit um Kunst, Design, Medien und natürlich um Essen. Die Aromen und Gerüche von fermentierten Lebensmitteln haben schon immer das Essen in ihrem Leben begleitet. In ihrem aktuellen Projekt ‘evesfermentationlab‘ auf Instagram greift sie diese Themen auf. Mit dem Ziel die gesundheitlichen und geschmacklichen Vorteile von fermentierten Lebensmitteln für mehr Menschen zugängliche zu machen.
+              </p>
+            </div>
           </div>
-          <div className='w-[50vw] h-screen flex overflow-hidden bg-primary'>
+          <div className='fixed right-0 top-0 w-[50vw] h-screen flex overflow-hidden bg-primary'>
             <div className='w-[50vw] h-screen flex relative justify-center items-center overflow-hidden'>
               <Gallery 
                 images={[
