@@ -1,15 +1,18 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import React from 'react'
+
 import { Gallery } from '../components/Gallery'
 import { Logo } from '../components/Logo'
-import { motion, useScroll, useTransform } from "framer-motion"
+import { About } from '../components/About'
+import { Contact } from '../components/Contact'
+import { useScroll, useTransform } from "framer-motion"
 
 const Home: NextPage = () => {
-  const { scrollY, scrollYProgress } = useScroll();
-  const width = useTransform(scrollY, [0, 500], [500, 100], {clamp: true});
-  const rotateElement = useTransform( scrollY, [0, 500], [0, 80], { clamp: true })
-  const rotateText = useTransform( scrollY, [0, 500], [0, -80], { clamp: true })
-
+  const { scrollY  } = useScroll();
+  const rotateElement = useTransform( scrollY, [0, 1200], [0, 360], { clamp: false })
+  const rotateText = useTransform( scrollY, [0, 1200], [0, 360], { clamp: false })
+ 
   return (
     <div>
       <Head>
@@ -18,18 +21,21 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className='min-h-screen'>
-        <div className='flex h-screen'>
-          <div className='w-[50vw] h-screen p-16 relative' >
-            <div className='fixed w-[50vw] flex justify-center left-0 top-0 pt-8 pb-4 bg-primary bg-opacity-100'>
-              <motion.div style={{ width }} >
-                <Logo width={width} rotateElement={rotateElement} rotateText={rotateText} white={true} />
-              </motion.div>
+        <div className='flex'>
+          <div className='w-[50vw] p-16 relative'>
+            
+            <div className='h-[80vh]'>
+              <Logo rotateElement={rotateElement} rotateText={rotateText} white={false} />
             </div>
-            <div className='mt-[600px] h-[1000px]'>
-              <p className='text-lg'>
-                Eve Jazmati is die Tochter einer thailändischen Mutter und eines syrischen Vaters, geboren in Bangkok, aufgewachsen in Deutschland. Essen hat in ihrer Familie und in ihrem Leben schon immer eine große Rolle gespielt. Während des Studiums drehte sich ihre Arbeit um Kunst, Design, Medien und natürlich um Essen. Die Aromen und Gerüche von fermentierten Lebensmitteln haben schon immer das Essen in ihrem Leben begleitet. In ihrem aktuellen Projekt ‘evesfermentationlab‘ auf Instagram greift sie diese Themen auf. Mit dem Ziel die gesundheitlichen und geschmacklichen Vorteile von fermentierten Lebensmitteln für mehr Menschen zugängliche zu machen.
-              </p>
+
+            <div className='my-8'>
+              <About />
             </div>
+
+            <div className='mt-20 mb-10'>
+              <Contact />
+            </div>
+
           </div>
           <div className='fixed right-0 top-0 w-[50vw] h-screen flex overflow-hidden bg-primary'>
             <div className='w-[50vw] h-screen flex relative justify-center items-center overflow-hidden'>
