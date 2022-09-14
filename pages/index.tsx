@@ -44,7 +44,7 @@ const Home: NextPage = () => {
               <AboutB />
             </div>
 
-            <div className='mt-20 mb-10 px-8'>
+            <div className='mt-20 mb-20 px-8'>
               <Contact mobil />
             </div>
 
@@ -62,7 +62,7 @@ const Home: NextPage = () => {
                 <AboutB />
               </div>
 
-              <div className='mt-20 mb-10 max-w-[720px] mx-auto'>
+              <div className='mt-20 mb-20 max-w-[720px] mx-auto'>
                 <Contact />
               </div>
 
