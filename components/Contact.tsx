@@ -58,7 +58,7 @@ export const Contact:React.FC<ContactProps> = ({mobil}) => {
       </motion.div>
 
       <motion.div style={{ x: mobil ? 20  : 20, y: yImage }} className={mobil ? 'absolute right-0 w-[60%] max-w-[200px]' : 'absolute right-0 w-[40%]'}>
-        <Image priority sizes="33vw" width="819px" height="1024px" alt="" src="/assets/profil-image.jpg" />
+        <Image className='select-none' priority sizes="33vw" width="819px" height="1024px" alt="" src="/assets/profil-image.jpg" />
       </motion.div>
     </div>
   )
