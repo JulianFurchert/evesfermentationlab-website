@@ -55,13 +55,13 @@ const Home: NextPage = () => {
             </div>
 
             <div className='mt-20 mb-10 px-8'>
-              <Contact />
+              <Contact mobil />
             </div>
 
           </div>
         ): (
           <div className='flex'>
-            <div className='w-[50vw] p-10 lg:p-16 relative md:bg-red-400'>
+            <div className='w-[50vw] p-10 lg:p-16 relative '>
               
               <div className='h-[80vh]'>
                 <Logo rotateElement={rotateElement} rotateText={rotateText} white={false} />
