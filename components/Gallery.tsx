@@ -65,12 +65,12 @@ export const Gallery: React.FC<Gallery> = ({ images }) => {
           }}
           onClick={() => paginate(1)}
         >
-          <Image loading="eager" priority alt="" layout="fill" objectFit="cover" src={images[imageIndex]} />
+          <Image sizes="50vw" loading="eager" priority alt="" layout="fill" objectFit="cover" src={images[imageIndex]} />
         </motion.div>
 
         {/* preload Image */}
         <div className='absolute w-full h-full cursor-pointer opacity-0'>
-          <Image loading="eager" priority alt="" layout="fill" objectFit="cover" src={images[imageIndex + 1 % (images.length - 1)]} />
+          <Image sizes="50vw" loading="eager" priority alt="" layout="fill" objectFit="cover" src={images[(imageIndex + 1) % images.length]} />
         </div>
 
       </AnimatePresence>

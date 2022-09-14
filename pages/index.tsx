@@ -22,17 +22,17 @@ const Home: NextPage = () => {
       </Head>
       <main className='min-h-screen'>
         <div className='flex'>
-          <div className='w-[50vw] p-16 relative'>
+          <div className='w-[50vw] p-10 lg:p-16 relative'>
             
             <div className='h-[80vh]'>
               <Logo rotateElement={rotateElement} rotateText={rotateText} white={false} />
             </div>
 
-            <div className='my-8'>
+            <div className='my-8 max-w-[720px] mx-auto'>
               <About />
             </div>
 
-            <div className='mt-20 mb-10'>
+            <div className='mt-20 mb-10 max-w-[720px] mx-auto'>
               <Contact />
             </div>
 

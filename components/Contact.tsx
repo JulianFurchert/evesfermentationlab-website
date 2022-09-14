@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import { Text } from "./Text";
 
 import GlobalIcon from '../assets/globe.svg'
 import InstagramIcon from '../assets/logo-instagram.svg'
@@ -33,7 +34,7 @@ const content = [
 export const Contact = () => {
   const { scrollYProgress  } = useScroll();
   const y = useTransform( scrollYProgress, [0.6, 1], [0, 0], { clamp: true })
-  const yImage = useTransform( scrollYProgress, [0.6, 1], ['100%', '-15%'], { clamp: true })
+  const yImage = useTransform( scrollYProgress, [0.6, 1], ['100%', '-50%'], { clamp: true })
 
   return (
     <div className='relative flex items-center'>
@@ -44,15 +45,17 @@ export const Contact = () => {
             <div className='w-8 h-8 rounded-full	 bg-primary text-white p-2'>
               {item.icon}
             </div>
-            <a href={item.href} className='ml-4 text-lg font-medium text-text hover:text-opacity-80'>
-              {item.title}
-            </a>
+            <Text className='ml-4 hover:text-opacity-80'>
+              <a href={item.href} >
+                {item.title}
+              </a>
+            </Text>
           </div>
         ))}
       </motion.div>
 
       <motion.div style={{ x: '10%', y: yImage }} className='absolute right-0 w-[40%]'>
-        <Image width="819px" height="1024px" alt="" src="/assets/profil-image.jpg" />
+        <Image sizes="33vw" width="819px" height="1024px" alt="" src="/assets/profil-image.jpg" />
       </motion.div>
     </div>
   )

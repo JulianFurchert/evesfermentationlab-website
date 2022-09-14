@@ -1,9 +1,10 @@
 import React from 'react'
+import { Text } from "./Text";
 
 export const About = () => {
   return (
     <React.Fragment>
-      <p className='text-lg text-text font-medium'>
+      <Text>
         Ich habe einen beruflichen Hintergrund im Bereich Design
         und einen Bachelor in Kommunikationsdesign. Während
         meines Studiums drehte sich meine Arbeit um Kunst,
@@ -30,8 +31,8 @@ export const About = () => {
         ich mich mehr und mehr auf das Fermentieren
         konzentriert. Die Aromen und Gerüche von fermentierten
         Lebensmitteln haben schon immer das Essen in meinem
-      </p>
-      <p className='mt-4 text-lg text-text font-medium' >
+      </Text>
+      <Text className='mt-4' >
         Leben begleitet. Die Aromen von fermentierten
         Lebensmitteln sind so komplex, dass jeder Bissen einen
         schönen, unvergesslichen Eindruck hinterlässt. Und ich
@@ -52,7 +53,7 @@ export const About = () => {
         Und alte Vorurteile/ Meinungen über fermentiertes Essen
         abzubauen, denn es beinhaltet so viel mehr als das was
         man glaubt zu kennen.
-      </p>
+      </Text>
     </React.Fragment>
   )
 }
