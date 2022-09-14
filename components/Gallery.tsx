@@ -74,7 +74,7 @@ export const Gallery: React.FC<Gallery> = ({ images }) => {
         </div>
 
       </AnimatePresence>
-      <div className="absolute w-full bottom-4 px-4">
+      <div className="absolute w-full top-4 px-4">
         <ProgressBar 
           duration={4} 
           currentIndex={page % images.length} 
