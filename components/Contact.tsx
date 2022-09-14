@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import Image from 'next/image'
 import { Text } from "./Text";
 
@@ -36,13 +36,23 @@ type ContactProps = {
 }
 
 export const Contact:React.FC<ContactProps> = ({mobil}) => {
-  const { scrollYProgress  } = useScroll();
-  const yImage = useTransform( scrollYProgress, [mobil ? 0.8 : 0.6, 1], ['100%', mobil ? '-68%' :'-50%'], { clamp: true })
+  const ref = useRef(null);
+
+  const { scrollYProgress  } = useScroll({
+    target: ref,
+    offset: ["start end", "end end"]
+  });
+
+  // const { scrollYProgress } = useScroll();
+  const yImage = useTransform( scrollYProgress, [0, 1], [200, mobil ? -180 : -130], { clamp: true })
+
+
+  React.useEffect(()=> scrollYProgress.onChange(e => console.log(e)),[])
 
   return (
     <div className='relative flex items-center'>
 
-      <motion.div className='border border-text px-4 py-2 w-full'>
+      <div ref={ref} className='border border-text px-4 py-2 w-full'>
         {content.map(item => (
           <div key={item.href} className='flex my-4 items-center'>
             <div className='w-8 h-8 rounded-full flex-shrink-0 bg-primary text-white p-2'>
@@ -55,9 +65,9 @@ export const Contact:React.FC<ContactProps> = ({mobil}) => {
             </Text>
           </div>
         ))}
-      </motion.div>
+      </div>
 
-      <motion.div style={{ x: mobil ? 20  : 20, y: yImage }} className={mobil ? 'absolute right-0 w-[60%] max-w-[200px]' : 'absolute right-0 w-[40%]'}>
+      <motion.div  style={{ x: mobil ? 20  : 20, y: yImage }} className={mobil ? 'absolute right-0 w-[60%] max-w-[200px]' : 'absolute right-0 w-[40%]'}>
         <Image className='select-none' priority sizes="33vw" width="819px" height="1024px" alt="" src="/assets/profil-image.jpg" />
       </motion.div>
     </div>
