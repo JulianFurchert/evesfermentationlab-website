@@ -39,10 +39,10 @@ export const Contact = () => {
   return (
     <div className='relative flex items-center'>
 
-      <motion.div style={{ y }} className='border border-text px-4 py-2 pr-[50%]'>
+      <motion.div style={{ y }} className='border border-text px-4 py-2 w-full'>
         {content.map(item => (
           <div key={item.href} className='flex my-4 items-center'>
-            <div className='w-8 h-8 rounded-full	 bg-primary text-white p-2'>
+            <div className='w-8 h-8 rounded-full flex-shrink-0 bg-primary text-white p-2'>
               {item.icon}
             </div>
             <Text className='ml-4 hover:text-opacity-80'>
