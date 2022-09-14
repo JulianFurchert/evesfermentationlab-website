@@ -12,9 +12,8 @@ import { useMediaQuery } from 'react-responsive'
 const Home: NextPage = () => {
   const isMobil = useMediaQuery({ query: '(max-width: 899px)' })
   const { scrollY  } = useScroll();
-  const rotateElement = useTransform( scrollY, [0, 1200], [0, 360], { clamp: false })
-  const rotateText = useTransform( scrollY, [0, 1200], [0, 360], { clamp: false })
-  const width = useWindowWidth()
+  const rotateElement = useTransform( scrollY, [0, 2000], [0, -360], { clamp: false })
+  const rotateText = useTransform( scrollY, [0, 2000], [0, 360], { clamp: false })
 
   return (
     <div>
