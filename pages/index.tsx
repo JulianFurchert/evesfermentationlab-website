@@ -7,22 +7,19 @@ import { AboutA, AboutB } from '../components/About'
 import { Contact } from '../components/Contact'
 import { useScroll, useTransform } from "framer-motion"
 import { useWindowWidth } from '@react-hook/window-size'
+import { useMediaQuery } from 'react-responsive'
 
 const Home: NextPage = () => {
+  const isMobil = useMediaQuery({ query: '(max-width: 899px)' })
   const { scrollY  } = useScroll();
   const rotateElement = useTransform( scrollY, [0, 1200], [0, 360], { clamp: false })
   const rotateText = useTransform( scrollY, [0, 1200], [0, 360], { clamp: false })
   const width = useWindowWidth()
 
-  // Mobil
-  if(!width) {
-    return <div></div>
-  }
-  
   return (
     <div>
-      <main className='min-h-screen w-full'>
-        {width < 900 ? (
+      <main className='min-h-screen w-full overflow-hidden'>
+        {isMobil ? (
           <div>
               
             <div className='h-[60vh]'>

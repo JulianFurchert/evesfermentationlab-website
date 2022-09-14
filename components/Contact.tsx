@@ -2,9 +2,9 @@ import React from 'react'
 import Image from 'next/image'
 import { Text } from "./Text";
 
-import GlobalIcon from '../assets/globe.svg'
+// import GlobalIcon from '../assets/globe.svg'
 import InstagramIcon from '../assets/logo-instagram.svg'
-import PhoneIcon from '../assets/phone.svg'
+// import PhoneIcon from '../assets/phone.svg'
 import SendIcon from '../assets/send.svg'
 import { useScroll, useTransform, motion } from "framer-motion"
 
