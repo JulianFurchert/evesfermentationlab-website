@@ -31,7 +31,7 @@ const Home: NextPage = () => {
         {width < 900 ? (
           <div>
               
-            <div className='h-[80vh]'>
+            <div className='h-[60vh]'>
               <Logo rotateElement={rotateElement} rotateText={rotateText} white={false} />
             </div>
 
