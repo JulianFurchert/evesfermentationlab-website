@@ -3,6 +3,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { wrap } from "popmotion";
 import { ProgressBar } from "./ProgressBar";
+import Image from 'next/image'
 
 const variants = {
   enter: (direction: number) => {
@@ -49,10 +50,10 @@ export const Gallery: React.FC<Gallery> = ({ images }) => {
   return (
     <>
       <AnimatePresence initial={false} custom={direction}>
-        <motion.img
-          className='absolute max-w-[50vw] cursor-pointer'
+        
+        <motion.div
+          className='absolute w-full h-full cursor-pointer'
           key={page}
-          src={images[imageIndex]}
           custom={direction}
           variants={variants}
           initial="enter"
@@ -63,26 +64,23 @@ export const Gallery: React.FC<Gallery> = ({ images }) => {
             opacity: { duration: 0.2 }
           }}
           onClick={() => paginate(1)}
-          // drag="x"
-          // dragConstraints={{ left: 0, right: 0 }}
-          // dragElastic={1}
-          // onDragEnd={(e, { offset, velocity }) => {
-          //   const swipe = swipePower(offset.x, velocity.x);
+        >
+          <Image alt="" layout="fill" objectFit="cover" src={images[imageIndex]} />
+        </motion.div>
 
-          //   if (swipe < -swipeConfidenceThreshold) {
-          //     paginate(1);
-          //   } else if (swipe > swipeConfidenceThreshold) {
-          //     paginate(-1);
-          //   }
-          // }}
-        />
+
+        {/* preload Image */}
+        <div className='absolute w-full h-full cursor-pointer opacity-0'>
+          <Image alt="" layout="fill" objectFit="cover" src={images[imageIndex + 1 % images.length]} />
+        </div>
+
       </AnimatePresence>
       <div className="absolute w-full bottom-4 px-4">
         <ProgressBar 
           duration={4} 
-          currentIndex={page % 6} 
+          currentIndex={page % images.length} 
           onChange={handleOnChange} 
-          count={6} 
+          count={images.length} 
         />
       </div>
     </>

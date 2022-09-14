@@ -8,21 +8,21 @@ import SendIcon from '../assets/send.svg'
 import { useScroll, useTransform, motion } from "framer-motion"
 
 const content = [
-  {
-    title: '+49 171 8384944',
-    href: 'tel:+491718384944',
-    icon: <PhoneIcon />
-  },
+  // {
+  //   title: '+49 171 8384944',
+  //   href: 'tel:+491718384944',
+  //   icon: <PhoneIcon />
+  // },
   {
     title: 'evesfermentationlab',
     href: 'evesfermentationlab',
     icon: <InstagramIcon />
   },
-  {
-    title: 'evesfermentationlab.com',
-    href: 'https://evesfermentationlab.com/',
-    icon: <GlobalIcon />
-  },
+  // {
+  //   title: 'evesfermentationlab.com',
+  //   href: 'https://evesfermentationlab.com/',
+  //   icon: <GlobalIcon />
+  // },
   {
     title: 'evesfermentationlab@gmail.com',
     href: 'mailto:evesfermentationlab.com',
@@ -36,7 +36,7 @@ export const Contact = () => {
   const yImage = useTransform( scrollYProgress, [0.6, 1], ['100%', '-15%'], { clamp: true })
 
   return (
-    <div className='relative flex'>
+    <div className='relative flex items-center'>
 
       <motion.div style={{ y }} className='border border-text px-4 py-2 pr-[50%]'>
         {content.map(item => (
@@ -51,7 +51,7 @@ export const Contact = () => {
         ))}
       </motion.div>
 
-      <motion.div style={{ x: '10%', y: yImage }} className='absolute top-0 right-0 w-[40%]'>
+      <motion.div style={{ x: '10%', y: yImage }} className='absolute right-0 w-[40%]'>
         <Image width="819px" height="1024px" alt="" src="/assets/profil-image.jpg" />
       </motion.div>
     </div>
