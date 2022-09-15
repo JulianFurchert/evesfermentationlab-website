@@ -71,10 +71,24 @@ const Home: NextPage = () => {
               <div className='w-[50vw] h-screen flex relative justify-center items-center overflow-hidden'>
                 <Gallery 
                   images={[
+                    "/assets/img/01_IMG_0971.jpg",
+                    "/assets/img/02_IMG_9888.jpg",
+                    "/assets/img/03_IMG_6224.jpg",
+                    // "/assets/img/04_IMG_9886.jpg",
+                    "/assets/img/05_IMG_7519.jpg",
+                    "/assets/img/06_IMG_7747.jpg",
+                    "/assets/img/07_IMG_8764.jpg",
                     "/assets/img/IMG_6786.jpg",
                     "/assets/img/IMG_6788.jpg",
                     "/assets/img/IMG_6797.jpg",
                     "/assets/img/IMG_6818.jpg",
+                    "/assets/img/08_IMG_9882 3.jpg",
+                    "/assets/img/09_IMG_9994.jpg",
+                    "/assets/img/10_IMG_9916.jpg",
+                    "/assets/img/11_IMG_8066.jpg",
+                    "/assets/img/12_IMG_9905.jpg",
+                    "/assets/img/13_IMG_9868.jpg",
+                    "/assets/img/14_IMG_9909.jpg",
                   ]}
                 />
               </div>
